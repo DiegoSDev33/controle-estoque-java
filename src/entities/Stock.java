@@ -82,7 +82,7 @@ public abstract class Stock {
 		quantity += Integer.parseInt(in);
 		total = price * quantity;
 		LocalDate date = LocalDate.now();
-		
+	
 		register = String.format("the following item was recorded: " + product
 				 + ", price un: " + price +", total: " + total + ", Order: " + Order + ", Quantity: " + quantity + " date: " + date );
 		list.add(register);

@@ -62,7 +62,7 @@ public class Seller {
 				System.out.println("saller  is register ... ");
 				this.returSellerTrue = 1;
 			} else {
-				System.out.println("this register is not register...");
+				System.out.println("this seller is not register...");
 			}
 
 		}
