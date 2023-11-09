@@ -4,13 +4,13 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
 import entities.Children;
 import entities.Client;
+import entities.ExceptionClass;
 import entities.Seller;
 import entities.feminineStock;
 import entities.masculineStock;
@@ -22,19 +22,24 @@ public class program {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		List<String> list = new ArrayList<>();
+		
 		masculineStock mStock = new masculineStock();
 		feminineStock fStock = new feminineStock();
-		String fileOutput = "C:\\temp\\registers.csv";
 		Children cStock = new Children();
+		
+		String fileOutput = "C:\\temp\\registers.csv";
+		
 		Seller seller = new Seller();
 		Client client = new Client();
+		
+		ExceptionClass exception = new ExceptionClass();
 
-		int whileTrue = 1;
+		
 		String in;
 		int choose = 0;
 		int classProduct = 0;
 
-		while (whileTrue == 1) {
+		while (true) {
 
 			System.out.println("What do you want to do?");
 			System.out.println("Choose the number of the process:");
@@ -52,10 +57,12 @@ public class program {
 				System.out.println("1 - masculine");
 				System.out.println("2 - feminine");
 				System.out.println("3 - children");
+			
+				
+				exception.ExceptionGlobalInt(sc.nextInt());
+					
 
-				classProduct = sc.nextInt();
-
-				switch (classProduct) {
+				switch (exception.getInputVar()) {
 				case 1:
 					mStock.inputStock();
 					list.add(mStock.getRegister());
@@ -106,10 +113,8 @@ public class program {
 						if (client.getReturClientTrue() == 1) { // TRAS DA LISTA SE O CLIENTE EXISTE, CASO SIM ELE
 																// LIBERA O PROXIMO PASSO
 
-							System.out.println("Which product do you want to sale?"); // SE O VENDEDOR E O CLIENTE
-																						// ESTIVER OK, LIBERA PARA FAZER
-																						// A VENDA
-
+							System.out.println("Which product do you want to sale?"); // SE O VENDEDOR E O CLIENTE ESTIVER OK, LIBERA PARA FAZER A VENDA
+																						
 							mStock.ConsultProductStock(sc.next());
 							if (mStock.getReturnProductTrue() == 1) { // RETORNA DO ESTOQUE PARA VER SE O PRODUTO EXISTE
 								mStock.outputStock();
@@ -162,7 +167,7 @@ public class program {
 								list.add(cStock.getRegister());
 							}
 						}
-					} 
+					}
 					break;
 				default:
 					System.out.println("invalid process!");
