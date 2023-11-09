@@ -66,7 +66,10 @@ public class program {
 				cStock.inputStock();
 				list.add(cStock.getRegister());
 			break;
+			default:
+				System.out.print("This class not exist");
 			}
+			
 		}
 		else if(choose ==2) {
 			System.out.println("Registration of new Seller: ");
