@@ -67,7 +67,7 @@ public class program {
 				list.add(cStock.getRegister());
 			break;
 			default:
-				System.out.print("This class not exist");
+				System.out.print("This class not exist!");
 			}
 			
 		}
