@@ -23,7 +23,7 @@ public class ExceptionClass {
 		
 	try {
 		this.inputVar = input;
-	}catch(InputMismatchException  e) {
+	}catch(NumberFormatException e) {
 		System.out.println(e.getMessage());
 		throw e;
 	}
