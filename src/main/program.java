@@ -4,13 +4,13 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
 import entities.Children;
 import entities.Client;
-import entities.ExceptionClass;
 import entities.Seller;
 import entities.feminineStock;
 import entities.masculineStock;
@@ -32,15 +32,13 @@ public class program {
 		Seller seller = new Seller();
 		Client client = new Client();
 		
-		ExceptionClass exception = new ExceptionClass();
-
-		
-		String in;
-		int choose = 0;
-		int classProduct = 0;
-
+		try {
 		while (true) {
-
+				String in;
+				int choose = 0;
+				int classProduct = 0;
+			
+				
 			System.out.println("What do you want to do?");
 			System.out.println("Choose the number of the process:");
 			System.out.println("1 - register new product");
@@ -57,12 +55,9 @@ public class program {
 				System.out.println("1 - masculine");
 				System.out.println("2 - feminine");
 				System.out.println("3 - children");
-			
 				
-				exception.ExceptionGlobalInt(sc.nextInt());
-					
-
-				switch (exception.getInputVar()) {
+				classProduct = sc.nextInt();
+				switch (classProduct) {
 				case 1:
 					mStock.inputStock();
 					list.add(mStock.getRegister());
@@ -194,9 +189,12 @@ public class program {
 			} else {
 				System.out.println("Option not found!");
 			}
-
+			
+		
 		} // while
-
+		}catch(RuntimeException e) {
+			System.out.println("Unexpected error - please put the valid value --->> " + e.getMessage());	
+		}
 	}
 
 }

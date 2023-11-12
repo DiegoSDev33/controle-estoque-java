@@ -1,33 +1,15 @@
 package entities;
 
-import java.util.InputMismatchException;
 
-public class ExceptionClass {
 
-	private int inputVar;
-
-	public int getInputVar() {
-		return inputVar;
-	}
-
-	public void setInputVar(int inputVar) {
-		this.inputVar = inputVar;
-	}
-	
-	public ExceptionClass() {
-		
-	}
+public class ExceptionClass extends RuntimeException{
 
 	
-	public void ExceptionGlobalInt(int input) throws InputMismatchException {
-		
-	try {
-		this.inputVar = input;
-	}catch(NumberFormatException e) {
-		System.out.println(e.getMessage());
-		throw e;
-	}
+	private static final long serialVersionUID = 1L;
 
+
+	public ExceptionClass(String msg) {
+		super(msg);
 	}
 	
 	
